@@ -5,7 +5,7 @@ require 'em-udns-multi'
 
 Gem::Specification.new do |gem|
   gem.name          = "em-udns-multi"
-  gem.version       = Em::Udns::Multi::VERSION
+  gem.version       = EventMachine::Udns::Multi::VERSION
 
   gem.authors       = ["Joshua M. Keyes"]
   gem.email         = ["joshua.michael.keyes@gmail.com"]

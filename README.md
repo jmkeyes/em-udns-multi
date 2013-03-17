@@ -26,11 +26,12 @@ The following example is trivial but can be expanded on significantly.
     require 'em-udns'
     require 'em-udns-multi'
 
-    EM.run do
-      resolver = EM::Udns::Multi.new
+    EventMachine.run do
+      resolver = EventMachine::Udns::Multi.new
 
       resolver.callback do |results|
-        EM.stop
+        puts "[x] Got a response: #{results.inspect}"
+        EventMachine.stop
       end
 
       resolver.query('key', 'A', 'google.com')

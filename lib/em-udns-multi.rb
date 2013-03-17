@@ -7,8 +7,8 @@ module EventMachine::Udns
     VERSION = "0.0.1"
 
     def initialize
-      @responses, @resolver = {}, EM::Udns::Resolver.new
-      EM.next_tick { EM::Udns.run @resolver }
+      @responses, @resolver = {}, EventMachine::Udns::Resolver.new
+      EventMachine.next_tick { EventMachine::Udns.run @resolver }
     end
 
     def query(name, target, type = 'A')
