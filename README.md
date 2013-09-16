@@ -27,14 +27,15 @@ The following example is trivial but can be expanded on significantly.
     require 'em-udns-multi'
 
     EventMachine.run do
-      resolver = EventMachine::Udns::Multi.new
+      # Create an aggregate resolver that must complete within 250ms.
+      resolver = EventMachine::Udns::Multi.new(0.250)
 
       resolver.callback do |results|
         puts "[x] Got a response: #{results.inspect}"
         EventMachine.stop
       end
 
-      resolver.query('key', 'A', 'google.com')
+      resolver.query(:google, 'google.com', 'A')
     end
 
 ## Contributing
